@@ -13,12 +13,12 @@ const lightTheme = {
 const darkTheme = {
   ...colors.dark,
   textColor: "#f1f1f1",
-  backgroundColor: colors.dark.background,
+  backgroundColor: colors.dark.offBlack,
   headerBackground: colors.dark.grayDark,
   mode: "dark",
 };
 
-let selectedTheme = lightTheme;
+let selectedTheme = darkTheme;
 
 let theme = {
   local__ui: { ...selectedTheme },

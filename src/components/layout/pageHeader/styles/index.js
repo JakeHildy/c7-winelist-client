@@ -1,10 +1,7 @@
 import styled from "styled-components";
 
 const PageHeaderStyles = styled.div`
-  background: ${({ theme }) => {
-    console.log(theme.local__ui);
-    return theme.local__ui.headerBackground;
-  }};
+  background: ${({ theme }) => theme.local__ui.headerBackground};
   padding: 0px 20px;
   display: flex;
   align-items: center;
