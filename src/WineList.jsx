@@ -1,6 +1,8 @@
 import React from "react";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/react-hooks";
+import { Card, Heading, ContextMenu, Text } from "@commerce7/admin-ui";
+const { ContextMenuItem } = ContextMenu;
 
 const ALL_WINES = gql`
   {
@@ -16,17 +18,27 @@ const ALL_WINES = gql`
 const WineList = () => {
   const { data, loading, error } = useQuery(ALL_WINES);
 
+  const handleAddWine = () => {
+    console.log("Adding Wine");
+  };
+
   return (
     <>
-      <h2>WineList</h2>
+      <Heading>WineList</Heading>
+      <ContextMenu>
+        <ContextMenuItem icon="wine" onClick={handleAddWine}>
+          Add Wine
+        </ContextMenuItem>
+      </ContextMenu>
       {data &&
         data.wines.map((wine) => {
           return (
-            <div key={wine.id}>
-              <h3>{wine.title}</h3>
-              <h4>{wine.type}</h4>
-              <p>{wine.varietal}</p>
-            </div>
+            <Card key={wine.id}>
+              <Heading level={3}>{wine.title}</Heading>
+              <Text>{wine.type}</Text>
+              <br />
+              <Text>{wine.varietal}</Text>
+            </Card>
           );
         })}
     </>

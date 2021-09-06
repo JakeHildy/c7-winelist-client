@@ -1,12 +1,17 @@
-import "./App.css";
+import GlobalStyles from "./theme/styles/GlobalStyles";
+
+import Theme from "./theme/Theme";
 import WineList from "./WineList";
+import { Page } from "./components/page";
 
 function App() {
   return (
-    <div className="App">
-      <h1>C7 Wine List</h1>
-      <WineList />
-    </div>
+    <Theme>
+      <GlobalStyles />
+      <Page>
+        <WineList />
+      </Page>
+    </Theme>
   );
 }
 
